@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Resignation Letter</title>
+</head>
+<body>
+    <h1>Resignation Letter</h1>
+    <p>Dear HR,</p>
+    <p>I, {{ employee_name }} (Employee ID: {{ employee_id }}), am submitting my resignation effective immediately.</p>
+    <p>Thank you for the opportunity to be a part of this organization.</p>
+    <p>Best regards,</p>
+    <p>{{ employee_name }}</p>
+    <p>{{ resignation_date }}</p>
+
+    <!-- Button to download the letter as a PDF -->
+    <form method="POST" action="{% url 'download_pdf' emp_id=employee_id %}">
+        {% csrf_token %}
+        <button type="submit">Download as PDF</button>
+    </form>
+</body>
+</html>

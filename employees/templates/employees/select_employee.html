@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Select Employee for Resignation</title>
+</head>
+<body>
+    <h1>Select Employee</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <label for="emp_id">Select Employee:</label>
+        <select id="emp_id" name="emp_id">
+            {% for employee in employees %}
+                <option value="{{ employee.emp_id }}">{{ employee.name }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit">Generate Resignation Letter</button>
+    </form>
+</body>
+</html>
